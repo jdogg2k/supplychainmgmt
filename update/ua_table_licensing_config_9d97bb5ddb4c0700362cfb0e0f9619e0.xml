@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="ua_table_licensing_config">
+    <ua_table_licensing_config action="INSERT_OR_UPDATE">
+        <is_fulfillment>false</is_fulfillment>
+        <license_condition/>
+        <license_model>none</license_model>
+        <license_roles/>
+        <name>x_kfna2_supply_cha_suppliers</name>
+        <op_delete>true</op_delete>
+        <op_insert>true</op_insert>
+        <op_update>true</op_update>
+        <owner_condition/>
+        <sys_class_name>ua_table_licensing_config</sys_class_name>
+        <sys_created_by>ros11756_admin</sys_created_by>
+        <sys_created_on>2017-07-18 17:27:57</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>9d97bb5ddb4c0700362cfb0e0f9619e0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_kfna2_supply_cha_suppliers</sys_name>
+        <sys_package display_value="Supply Chain Management" source="x_kfna2_supply_cha">a7767b1ddb4c0700362cfb0e0f9619ec</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Supply Chain Management">a7767b1ddb4c0700362cfb0e0f9619ec</sys_scope>
+        <sys_update_name>ua_table_licensing_config_9d97bb5ddb4c0700362cfb0e0f9619e0</sys_update_name>
+        <sys_updated_by>ros11756_admin</sys_updated_by>
+        <sys_updated_on>2017-07-18 17:27:57</sys_updated_on>
+    </ua_table_licensing_config>
+</record_update>

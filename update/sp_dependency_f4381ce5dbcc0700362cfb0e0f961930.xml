@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_dependency">
+    <sp_dependency action="INSERT_OR_UPDATE">
+        <module>ngMap</module>
+        <name>Google Maps</name>
+        <page_load>false</page_load>
+        <sp_portals/>
+        <sys_class_name>sp_dependency</sys_class_name>
+        <sys_created_by>ros11756_admin</sys_created_by>
+        <sys_created_on>2017-07-18 19:52:56</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>f4381ce5dbcc0700362cfb0e0f961930</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Google Maps</sys_name>
+        <sys_package display_value="Supply Chain Management" source="x_kfna2_supply_cha">a7767b1ddb4c0700362cfb0e0f9619ec</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Supply Chain Management">a7767b1ddb4c0700362cfb0e0f9619ec</sys_scope>
+        <sys_update_name>sp_dependency_f4381ce5dbcc0700362cfb0e0f961930</sys_update_name>
+        <sys_updated_by>ros11756_admin</sys_updated_by>
+        <sys_updated_on>2017-07-18 19:52:56</sys_updated_on>
+    </sp_dependency>
+</record_update>

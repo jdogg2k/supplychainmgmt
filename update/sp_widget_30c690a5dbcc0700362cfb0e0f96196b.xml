@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <client_script><![CDATA[function($scope) {
+  /* widget controller */
+  var c = this;
+	
+    /*$scope.data =[
+      {foo:1, bar:1},
+      {foo:2, bar:2},
+      {foo:3, bar:3},
+      {foo:4, bar:4},
+      {foo:5, bar:5},
+      {foo:6, bar:6},
+      {foo:7, bar:7}
+    ];
+    $scope.positions =[
+      {pos:[40.71, -74.21]},
+      {pos:[40.72, -74.20]},
+      {pos:[40.73, -74.19]},
+      {pos:[40.74, -74.18]},
+      {pos:[40.75, -74.17]},
+      {pos:[40.76, -74.16]},
+      {pos:[40.77, -74.15]}
+    ];
+    $scope.showData = function() {
+      alert($scope.data.foo);
+    }*/
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.gMap {
+  width: 100%;
+  //height: calc(100vh - 95px);
+  height: 850px;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>supply-chain-map</id>
+        <internal>false</internal>
+        <link/>
+        <name>Supply Chain Map</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+
+		data.suppliers = [];
+
+		var gr = new GlideRecordSecure('x_kfna2_supply_cha_suppliers'); 
+		gr.addEncodedQuery("lat_coord!=NULL");
+		gr.query();
+		while (gr.next()) {		
+			var supplier = {};
+			var position = [];
+			var client = gr.getElement('client.name');  
+			position.push(parseFloat(gr.getValue("lat_coord") + ''));
+			position.push(parseFloat(gr.getValue("lon_coord") + ''));
+			
+			supplier.name = gr.getValue("name") + " | " + gr.getValue("city") + " | " + client;
+			supplier.pos = position;
+			
+			var icon = "";
+			if (client == "Honeywell") {
+				icon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
+			} else if (client == "Rolls-Royce") {
+				icon = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
+			} else { //default
+				icon = "http://maps.google.com/mapfiles/ms/icons/purple-dot.png";
+			}
+			
+			supplier.icon = icon;
+
+			data.suppliers.push(supplier);
+		}
+
+})()
+]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>ros11756_admin</sys_created_by>
+        <sys_created_on>2017-07-18 19:44:10</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>30c690a5dbcc0700362cfb0e0f96196b</sys_id>
+        <sys_mod_count>16</sys_mod_count>
+        <sys_name>Supply Chain Map</sys_name>
+        <sys_package display_value="Supply Chain Management" source="x_kfna2_supply_cha">a7767b1ddb4c0700362cfb0e0f9619ec</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Supply Chain Management">a7767b1ddb4c0700362cfb0e0f9619ec</sys_scope>
+        <sys_update_name>sp_widget_30c690a5dbcc0700362cfb0e0f96196b</sys_update_name>
+        <sys_updated_by>ros11756_admin</sys_updated_by>
+        <sys_updated_on>2017-07-18 21:22:32</sys_updated_on>
+        <template><![CDATA[<div>
+<!-- your widget template -->
+  <ng-map zoom="5" center="[37.68717609999999, -97.33005299999999]" class="gMap">
+      <marker ng-repeat="s in data.suppliers"
+        position="{{s.pos}}" title="pos: {{s.name}}" icon="{{s.icon}}"></marker>
+    </ng-map>
+</div>]]></template>
+    </sp_widget>
+</record_update>

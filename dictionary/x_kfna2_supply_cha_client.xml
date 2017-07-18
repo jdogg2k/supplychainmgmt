@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Client" max_length="40" name="x_kfna2_supply_cha_client" type="collection">
+        <element label="Client Name" max_length="40" name="name" type="string"/>
+        <element choice="3" default="Existing" label="Client Type" max_length="40" name="type" type="choice">
+            <choice>
+                <element label="Existing" sequence="1" value="Existing"/>
+                <element label="Target" sequence="2" value="Target"/>
+            </choice>
+        </element>
+    </element>
+</database>
