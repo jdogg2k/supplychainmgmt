@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_js_include">
+    <sp_js_include action="INSERT_OR_UPDATE">
+        <display_name>Angular Bootstrap Toggle</display_name>
+        <source>local</source>
+        <sys_class_name>sp_js_include</sys_class_name>
+        <sys_created_by>ros11756_admin</sys_created_by>
+        <sys_created_on>2017-07-19 17:42:16</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>7964cd3ddb884700362cfb0e0f96192d</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Angular Bootstrap Toggle</sys_name>
+        <sys_package display_value="Supply Chain Management" source="x_kfna2_supply_cha">a7767b1ddb4c0700362cfb0e0f9619ec</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Supply Chain Management">a7767b1ddb4c0700362cfb0e0f9619ec</sys_scope>
+        <sys_ui_script display_value="x_kfna2_supply_cha.Angular Bootstrap Tog">eb974dbddb884700362cfb0e0f9619e5</sys_ui_script>
+        <sys_update_name>sp_js_include_7964cd3ddb884700362cfb0e0f96192d</sys_update_name>
+        <sys_updated_by>ros11756_admin</sys_updated_by>
+        <sys_updated_on>2017-07-19 17:58:08</sys_updated_on>
+        <url>https://raw.githubusercontent.com/ziscloud/angular-bootstrap-toggle/master/dist/angular-bootstrap-toggle.js</url>
+    </sp_js_include>
+</record_update>

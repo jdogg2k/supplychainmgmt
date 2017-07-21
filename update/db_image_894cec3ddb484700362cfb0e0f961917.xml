@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>Service Portal</category>
+        <format>png</format>
+        <height>26</height>
+        <image/>
+        <name>GE-logo.png</name>
+        <size_bytes>2127</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>ros11756_admin</sys_created_by>
+        <sys_created_on>2017-07-19 15:56:45</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>894cec3ddb484700362cfb0e0f961917</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>GE-logo.png</sys_name>
+        <sys_package display_value="Supply Chain Management" source="x_kfna2_supply_cha">a7767b1ddb4c0700362cfb0e0f9619ec</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Supply Chain Management">a7767b1ddb4c0700362cfb0e0f9619ec</sys_scope>
+        <sys_update_name>db_image_894cec3ddb484700362cfb0e0f961917</sys_update_name>
+        <sys_updated_by>ros11756_admin</sys_updated_by>
+        <sys_updated_on>2017-07-19 15:56:49</sys_updated_on>
+        <thumbnail/>
+        <width>26</width>
+    </db_image>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color>#619dce</average_image_color>
+        <compressed>true</compressed>
+        <content_type>image/png</content_type>
+        <encryption_context/>
+        <file_name>image</file_name>
+        <image_height>26</image_height>
+        <image_width>26</image_width>
+        <size_bytes>2127</size_bytes>
+        <size_compressed>2150</size_compressed>
+        <sys_created_by>ros11756_admin</sys_created_by>
+        <sys_created_on>2017-07-19 15:56:49</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>105cac3ddb484700362cfb0e0f9619fd</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_updated_by>ros11756_admin</sys_updated_by>
+        <sys_updated_on>2017-07-19 15:56:50</sys_updated_on>
+        <table_name>ZZ_YYdb_image</table_name>
+        <table_sys_id>894cec3ddb484700362cfb0e0f961917</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="image" sys_id="105cac3ddb484700362cfb0e0f9619fd">105cac3ddb484700362cfb0e0f9619fd</sys_attachment>
+        <sys_created_by>ros11756_admin</sys_created_by>
+        <sys_created_on>2017-07-19 15:56:49</sys_created_on>
+        <sys_id>505cac3ddb484700362cfb0e0f9619fd</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>AU8IsPeJUE5HDQoaCgAAAA1JSERSAAAAGgAAABoIBgAAAKlKTM4AAAgWSURBVEiJfZZ5cJTlGcB/3/ftfWR3kyy5k00gwTSEI4Sj3EesKCqNqIOKqQ5WUrEeaFuoo1OpdUarRDyoiKDjXWGK1AJDa4RIRA5TwhUgkDsh2c0mm83e++23X/8IM+20xee/d96Z5/fM887z/h6BHw4HsAAoA7KATMBy7S4MDAD9QCtwGPBcL5EAwNo9YycVUDSIGi3JbctWC5JuueTISdGWLYu4KhY6JrjyHHajISWpqgwFo6NtPX2+7lNHfInz+03KSO8oiXi9WLtvezKhgs8KCQ0IKnwx7/+A3qm2A88KzpL83GWPU33T/CUzC+2piaSKdyRKmt1ARZGDdLOWWEyh1xdlb/PAyGf7vvtH38E6GU9LAHielQ39/wmSAKhcNQZ6p3oCgviyrvI+6cFnNs9Zv2L63NGwbHyjoYsdB6+g0WvYuLwEo1bi2BUfF91B0iw6bp+WafhZVVlZyLXIdm5AblOunllJy84WbljjQQAu7kQDgAj8qToFhE2mpU+Nvvjr2poSp8m4cfcFTrf7wKoDiw6zVUf9JS9b6zs4fNE71nutRKnTRM3sXH6zrDh/Su4zD2zYnLszeOCF37F37jpWfOv+9xvV/BU+uH2zNPNeU90fNq2emmc337XlGO6QjOgwkowrEE9AJAEaESQRzFpIJCEUBzkJiSQlhQ7evL+cVk8ovv6Zuu3x42+agIeBxFjrTn+6Ctv42Ws2bZm7blFRxt1vnaTTGwaHEeIKgqLywJw85pWmc9kXJaYRQUlilkQeXuSi1GWnLZyg3x1if/MANfPypZTi4oymhoZuwt404J8S4EQQn8qsfkX58PEFC3ad6Oejrzsg1ThWaUTm+eobmOey89NpmVwcCHGpbxSDJPCrG4u4d0YOJU4T/pBMy0CQiKJyqmuEXy4pth8L51/wNe0pAfWoCMzHkZNyb/Xsm1PNerY3doMkMjnDwp1TM7i1MptFE9N4vb6d/kCcTm8Ikipl2VZunZzBB43daLQig6E4qCDaDFzq8vPt5SHuqJp8m5A+XgIWi0Cpvvy2wMqKDNvpnlEuekIgQmWOlSXFaSyfNI7GC17WLHTRNRCkdn4B2U4TZr0GV7qJqskZfHnGw5GWQQSLDiGZBJue9070UZnvMJun3xkDikUgJ2/qwrRsu5FWdwhVVsCg4XjHCDkOA/fMyuGOmTn0ecN0DIaYlJ/CkDvEvCIHKUYtu4/18uquFhSthCgJqAigqPS3+4jEFYor56cCRSKQOaEgJ1WvFbHqpbGhNWhpGQzx+GfnONHuIxpLMBSMUz0rl3cPdfLqqknMKrBxvneUXywtZMcjlZRnW1FCMslYgpXTs6iek0f3YIiJec5cwCYCpjSzwToclpk7IZU5xWkQlkGnoXM4yuqdp/j0RB8TnCbsRg2PVhVxdSTK0GicoWCc7Q1dfHl+kF5/DCQBYgqrZ+Xy8boZFGZacJh0VsYGAkRR4Pt2H3aTlo3LiyGpoiaToBEJBuK0e0JMzLai10msff80/aE4Py5N586tJznS7iPTpsflMCCKAgjwxwNXGAnLTCmwk1THPh0NEAmE5cDAcIQHtzWhs+hAL0E0wfhUE3WrytBJIvvOeDBbdPT5o7xbNY2thzopzbLyce103MMRHltcyNO7Wth/ZoCjl7x8c3mYmUUOvMFoEFBEwH2l9+qw027gz0e6+fBoDwA5diMfr60gKQgse+EbhsNxonEFSSsyzqrj0mCIxWVOvIE4czfW813nCA8tLEDSSpBU8UcTaERo7RvuBQIicLX9+yNevUYkp8gBogBykseqClGAmtePQyLJuhvHc6xjBL8/xmgkwdxCO7tO9HG+P4Am04I7EMOoEdEJAogCrjQj3mCMtpPHvECHCLRGmvdam7oCwZoZWTASBa1IfpqJfn8Mu1bk2dWTyUjR89HRHsKJJO81dvPkjUW40ow8+clZVpZncNe0LA6c9xAZiZKTYWZWoZ0vm72RyKnPtcAVCfAS8y91Z8xofaiqbFJTT4Bhd5CoJHDLj5xUz82nosDGb3df4PDlYQSDhlOdfrJS9Dy6tIgFJWncVJ7B35rdbKnvQPbHeGJ5CRV5dh774PAe39fbJFC3SUAQVIu/+3yhbdLtKWuX5tr/fnqQs+0+WoYjDIdktnzVzqGLQ2DUIGpEZFlh3zkPbe4QvpjCZ8d72f5dL7I/Rn6OlTdqytm8v+fqgdceaWHUcxw4KFxTughs0019Qq6rW7fGZbfoat9vpqfdBwYNWPRg1iIIoIZkSKogCGNKVlTQiiAnsegkPnmkkqGAnKx98bWtsYN1WcBqIDqmiSXNKh1vH1fcJ+5uHHQ2zqyYOO25FaWiw2GkMyTjjyYgqkAkwVSXjZfuLsNg0HCuPzhWSEgmz2nmrfsn4wvL6vrX97wd2v/7cajqRjbs9tD4+TXxVTWNOfCrinJEzXP62T8fXFNbu2LDzROyJUnkbN8olwfD2PQSiyam4zBrefi9Zj6t7yDTZeOeqZksuCGNQ63Dnh07du4ONbyVjiK/woZdJ1GBl+76L5BWhgOzXMAmsqYkCm572nLfT6bfcuuUDPM4qx5EgaiS5EyXn9a+UbIcRoxakbP9gcjehpZ9V/a+PJLsbXKA+hzr/9KCTuH6IOcIkhaUHTc9Kmj0C6X0Qo1m0op4UeV8+8Tc9FxniiFFEgR8oXig9epQ76XvjwzLp78QZU+bqMrRb4E6HtwPjij/C7p+5AOLgfFAEWCDa5sTJIFRoANoZ2yBbLteon8BBU5uqzvd/kgAAAAASUVORK5CYII5WBzsTwgAAA==</data>
+        <length>2856</length>
+        <position>1</position>
+        <sys_attachment display_value="image" sys_id="105cac3ddb484700362cfb0e0f9619fd">105cac3ddb484700362cfb0e0f9619fd</sys_attachment>
+        <sys_created_by>ros11756_admin</sys_created_by>
+        <sys_created_on>2017-07-19 15:56:49</sys_created_on>
+        <sys_id>d05cac3ddb484700362cfb0e0f9619fd</sys_id>
+    </sys_attachment_doc>
+</record_update>

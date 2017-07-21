@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="m2m_sp_dependency_js_include">
+    <m2m_sp_dependency_js_include action="INSERT_OR_UPDATE">
+        <order>200</order>
+        <sp_dependency display_value="Google Maps">f4381ce5dbcc0700362cfb0e0f961930</sp_dependency>
+        <sp_js_include display_value="https://cdn.jsdelivr.net/fontawesome-markers/4.6.1/fontawesome-markers.min.js">413edc35db484700362cfb0e0f96190d</sp_js_include>
+        <sys_class_name>m2m_sp_dependency_js_include</sys_class_name>
+        <sys_created_by>ros11756_admin</sys_created_by>
+        <sys_created_on>2017-07-19 14:55:25</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>684edc35db484700362cfb0e0f961914</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Google Maps.https://raw.githubusercontent.com/nathan-muir/fontawesome-markers/master/fontawesome-markers.min.js</sys_name>
+        <sys_package display_value="Supply Chain Management" source="x_kfna2_supply_cha">a7767b1ddb4c0700362cfb0e0f9619ec</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Supply Chain Management">a7767b1ddb4c0700362cfb0e0f9619ec</sys_scope>
+        <sys_update_name>m2m_sp_dependency_js_include_684edc35db484700362cfb0e0f961914</sys_update_name>
+        <sys_updated_by>ros11756_admin</sys_updated_by>
+        <sys_updated_on>2017-07-19 14:55:31</sys_updated_on>
+    </m2m_sp_dependency_js_include>
+</record_update>

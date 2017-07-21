@@ -1,37 +1,320 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <record_update table="sp_widget">
     <sp_widget action="INSERT_OR_UPDATE">
-        <client_script><![CDATA[function($scope) {
+        <client_script><![CDATA[function($scope, $sce, NgMap) {
   /* widget controller */
   var c = this;
+	var mapMarkers = [];
+	$scope.legendDisplay = false;
+	$scope.supplierBox = "";
+	$scope.maplocal = true;
+	$scope.clientType = "All Suppliers";
+	$scope.mapLat = 38.5925532;
+	$scope.mapLong = -90.5870686;
+	$scope.mapzoom = 5;
+
 	
-    /*$scope.data =[
-      {foo:1, bar:1},
-      {foo:2, bar:2},
-      {foo:3, bar:3},
-      {foo:4, bar:4},
-      {foo:5, bar:5},
-      {foo:6, bar:6},
-      {foo:7, bar:7}
-    ];
-    $scope.positions =[
-      {pos:[40.71, -74.21]},
-      {pos:[40.72, -74.20]},
-      {pos:[40.73, -74.19]},
-      {pos:[40.74, -74.18]},
-      {pos:[40.75, -74.17]},
-      {pos:[40.76, -74.16]},
-      {pos:[40.77, -74.15]}
-    ];
-    $scope.showData = function() {
-      alert($scope.data.foo);
-    }*/
+	getFontIcon = function(symbol) {
+			return fontawesome.markers[symbol.toUpperCase()];
+	}
+	
+	NgMap.getMap().then(function(map) {
+		
+		
+		
+		// the smooth zoom function
+var panPath = [];   // An array of points the current panning action will use
+var panQueue = [];  // An array of subsequent panTo actions to take
+var STEPS = 10;     // The number of steps that each panTo action will undergo
+
+function panTo(newLat, newLng) {
+  if (panPath.length > 0) {
+    // We are already panning...queue this up for next move
+    panQueue.push([newLat, newLng]);
+  } else {
+    // Lets compute the points we'll use
+    panPath.push("LAZY SYNCRONIZED LOCK");  // make length non-zero - 'release' this before calling setTimeout
+    var curLat = map.getCenter().lat();
+    var curLng = map.getCenter().lng();
+    var dLat = (newLat - curLat)/STEPS;
+    var dLng = (newLng - curLng)/STEPS;
+
+    for (var i=0; i < STEPS; i++) {
+      panPath.push([curLat + dLat * i, curLng + dLng * i]);
+    }
+    panPath.push([newLat, newLng]);
+    panPath.shift();      // LAZY SYNCRONIZED LOCK
+    setTimeout(doPan, 20);
+  }
+}
+
+function doPan() {
+  var next = panPath.shift();
+  if (next != null) {
+    // Continue our current pan action
+    map.panTo( new google.maps.LatLng(next[0], next[1]));
+    setTimeout(doPan, 20 );
+  } else {
+    // We are finished with this pan - check if there are any queue'd up locations to pan to 
+    var queued = panQueue.shift();
+    if (queued != null) {
+      panTo(queued[0], queued[1]);
+    } else {
+     // map.setZoom(zoom);
+			if ($scope.maplocal) {
+				//map.setZoom(5);
+				smoothZoom(map, 6, map.getZoom());
+			}
+    }
+  }
+}
+  
+// the smooth zoom function
+function smoothZoom (map, max, cnt) {
+    if (cnt >= max) {
+            return;
+        }
+    else {
+        z = google.maps.event.addListener(map, 'zoom_changed', function(event){
+            google.maps.event.removeListener(z);
+            smoothZoom(map, max, cnt + 1);
+        });
+        setTimeout(function(){map.setZoom(cnt)}, 80); // 80ms is what I found to work well on my system -- it might not work well on all systems
+    }
+}
+		
+		$scope.switchView = function() { 
+			var lat;
+			var lng;
+			if ($scope.maplocal) {
+				lat = 38.5925532;
+				lng = -90.5870686;
+			} else {
+				lat = 49.243027;
+				lng = 91.568891;
+			}
+			if (!$scope.maplocal) {
+				map.setZoom(3);
+			}
+			panTo(lat, lng);
+			/*if ($scope.maplocal) {
+				map.setZoom(5);
+			}*/
+	}
+
+	var infowindow =  new google.maps.InfoWindow({
+			content: ''
+		});
+	
+	$scope.bindInfoWindow = function(marker, map, infowindow, html) { 
+			google.maps.event.addListener(marker, 'mouseover', function() { 
+				infowindow.setContent(html); 
+				infowindow.open(map, marker); 
+			}); 
+			
+			google.maps.event.addListener(marker, 'mouseout', function() { 
+				infowindow.close();
+			});
+		}
+	
+	processMapData = function (map) {
+		 for (var i = 0; i < $scope.data.suppliers.length; i++) {
+					var s = $scope.data.suppliers[i];
+					if (s.logo.length < 1){
+						iconPackage = {
+										path: getFontIcon(s.markerPath),
+										scale: 0.4,
+										strokeWeight: 0.3,
+										strokeColor: '#ffffff',
+										fillColor: s.markerColor,
+										fillOpacity: 0.7
+								};
+					} else {
+						iconPackage = "/" + s.logo;						
+					}			
+					var marker = new google.maps.Marker({
+						position: new google.maps.LatLng(s.lat, s.long),
+						icon: iconPackage,
+						map: map
+					});
+						mapMarkers.push(marker);
+			    var logoClass = "infoLogo";
+			    if (s.client == "Pratt & Whitney")
+						logoClass += " prattLogo";
+			 
+			    var stateVal = s.state;
+
+					var infoContent = '<div id="iw-container">' +
+                    '<div class="iw-title" style="background-color: ' + s.markerColor +'">' + s.name + '<img class="' + logoClass + '" src="/' + s.logo + '" /></div>' +
+                    '<div class="iw-content">' +
+                      '<div class="iw-subTitle">' + s.client + ' | ' + s.city + ', ' + stateVal + '</div>' +
+                      '<div class="iw-location">' + s.comment + '</div>' +
+                    '</div>' +
+                    '<div class="iw-bottom-gradient"></div>' +
+                  '</div>';
+					$scope.bindInfoWindow(marker, map, infowindow, infoContent);
+        }
+	}
+	
+	function reloadMarkers() {
+
+    // Loop through markers and set map to null for each
+    for (var i=0; i<mapMarkers.length; i++) {
+
+        mapMarkers[i].setMap(null);
+    }
+
+    // Reset the markers array
+    mapMarkers = [];
+
+    // Call set markers to re-add markers
+    processMapData(map);
+	}
+	
+	$scope.clientChanged = function(){
+		var mapFilter = "";
+		$scope.data.clients.forEach(function(leg) {
+					if (!leg.enabled) {
+						mapFilter += "^client!=" + leg.sys_id;
+					}
+		});
+		if ($scope.supplierBox.length > 0){
+			mapFilter += "^nameLIKE" + $scope.supplierBox + "^ORcommentLIKE" + $scope.supplierBox;
+		}
+		
+		c.data.filter = mapFilter;
+		c.server.update().then(function(response) {
+			reloadMarkers();
+		});
+		
+	}
+	
+	$scope.typeChanged = function(){
+		for (var i=0; i<$scope.data.clients.length; i++) {
+					var leg = $scope.data.clients[i];
+					leg.enabled = false;
+					if ($scope.clientType == "All Suppliers" || ($scope.clientType == "Target Suppliers" && leg.type == "Target") || ($scope.clientType == "Existing Suppliers" && leg.type == "Existing"))
+					leg.enabled = true;
+    }
+		$scope.clientChanged();
+	}
+	
+	$scope.boxToggle = function(){
+		$scope.clientType = "All Suppliers";
+		$scope.clientChanged();
+	}
+	
+	$scope.clearText = function(){
+		$scope.supplierBox = "";
+		$scope.clientChanged();
+	}
+	
+	google.maps.event.addListener(infowindow, 'domready', function(){
+    $(".gm-style-iw").next("div").hide();
+});
+	
+		processMapData(map);
+		
+		var legend = document.getElementById('legend');
+    map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(legend);
+		
+		$scope.legendDisplay = true;
+		
+  }, 0);
+
 }]]></client_script>
         <controller_as>c</controller_as>
-        <css>.gMap {
+        <css>@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+.gm-style-iw + div {display: none;}
+.gm-style-iw {text-align:center;}
+
+.gMap {
   width: 100%;
   //height: calc(100vh - 95px);
   height: 850px;
+}
+
+#iw-container {
+    text-align: left;
+}
+
+#iw-container  .iw-title {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    padding: 5px;
+    color: white;
+    margin-bottom: 4px;
+    border-radius: 2px 2px 0 0;
+}
+
+.iw-subTitle {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 15px;
+    color: #080000;
+}
+
+.iw-location {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 14px;
+    margin-top: 5px;
+    color: #000000;
+}
+
+.legend-search {
+ 		width: 175px; 
+}
+
+.legendgroupL {
+ float: left;
+}
+
+.legendgroupR {
+ float: right;
+}
+
+.clientToggle {
+ 	margin-top: 15px !important; 
+}
+
+.searchX {
+     margin-right: 40px; 
+}
+
+.prattLogo {
+ 	margin-top: -6px !important; 
+}
+
+.infoLogo {
+ 		float: right;
+    margin-top: -4px; 
+    padding-left: 10px;
+}
+
+#legend 
+{
+  font-family: 'Roboto Condensed', sans-serif;
+  background: #fff;
+  font-size: 14px;
+  color: black;
+  padding: 10px;
+  margin: 10px;
+  border: 3px solid #000;
+}
+#legend h3 {
+  margin-top: 0;
+  font-size: 20px;
+}
+#legend img {
+  vertical-align: middle;
+  padding-right: 5px;
+}
+#legend i {
+  vertical-align: middle;
+  padding-right: 5px;
+}
+#legend div {
+ 	margin-bottom: 3px; 
 }</css>
         <data_table>sp_instance</data_table>
         <demo_data/>
@@ -49,33 +332,70 @@
         <script><![CDATA[(function() {
 
 		data.suppliers = [];
+	  var supplierFilter = "lat_coord!=NULL";
+
+	  if (input){
+			supplierFilter += input.filter;
+		}
 
 		var gr = new GlideRecordSecure('x_kfna2_supply_cha_suppliers'); 
-		gr.addEncodedQuery("lat_coord!=NULL");
+		gr.addEncodedQuery(supplierFilter);
+	  //console.log(supplierFilter);
 		gr.query();
 		while (gr.next()) {		
 			var supplier = {};
-			var position = [];
-			var client = gr.getElement('client.name');  
-			position.push(parseFloat(gr.getValue("lat_coord") + ''));
-			position.push(parseFloat(gr.getValue("lon_coord") + ''));
+			var client = gr.getElement('client.name');
+			var logo = gr.getElement('client.logo');
+			var cColor = gr.getElement('client.color').getDisplayValue();
 			
-			supplier.name = gr.getValue("name") + " | " + gr.getValue("city") + " | " + client;
-			supplier.pos = position;
+			supplier.name = gr.getValue("name");
+			supplier.client = client.toString();
+			supplier.city = gr.getValue("city");
+			supplier.state = gr.getValue("state");
 			
-			var icon = "";
-			if (client == "Honeywell") {
-				icon = "http://maps.google.com/mapfiles/ms/icons/red-dot.png";
-			} else if (client == "Rolls-Royce") {
-				icon = "http://maps.google.com/mapfiles/ms/icons/blue-dot.png";
-			} else { //default
-				icon = "http://maps.google.com/mapfiles/ms/icons/purple-dot.png";
+			if (gr.state.nil() || supplier.state == "-")
+			supplier.state = gr.getValue("country");
+			
+			supplier.lat = parseFloat(gr.getValue("lat_coord") + '');
+			supplier.long = parseFloat(gr.getValue("lon_coord") + '');
+			supplier.comment = gr.getValue("comment");
+			supplier.logo = logo.getDisplayValue();
+			
+			var iconColor = "#077e94";
+			var iconPath = "building";
+			
+			supplier.iconImage = false;
+			
+			if (cColor.length > 0) {
+				iconColor = cColor;
 			}
 			
-			supplier.icon = icon;
+			supplier.markerColor = iconColor;
+			supplier.markerPath = iconPath;
 
 			data.suppliers.push(supplier);
 		}
+	if (!input){
+	data.clients = [];	
+
+		
+	var clientRecord = new GlideRecordSecure('x_kfna2_supply_cha_client'); 
+		clientRecord.addEncodedQuery("color!=");
+	  clientRecord.orderBy("name");
+		clientRecord.query();
+		while (clientRecord.next()) {		
+			var clientObj = {};
+			
+			clientObj.sys_id = clientRecord.getValue("sys_id");
+			clientObj.name = clientRecord.getValue("name");
+			clientObj.type = clientRecord.getValue("type");
+			clientObj.color = clientRecord.getValue("color");
+			clientObj.icon = clientRecord.getElement('logo').getDisplayValue();
+			clientObj.enabled = true;
+
+			data.clients.push(clientObj);
+		}
+	}
 
 })()
 ]]></script>
@@ -85,7 +405,7 @@
         <sys_created_on>2017-07-18 19:44:10</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>30c690a5dbcc0700362cfb0e0f96196b</sys_id>
-        <sys_mod_count>16</sys_mod_count>
+        <sys_mod_count>267</sys_mod_count>
         <sys_name>Supply Chain Map</sys_name>
         <sys_package display_value="Supply Chain Management" source="x_kfna2_supply_cha">a7767b1ddb4c0700362cfb0e0f9619ec</sys_package>
         <sys_policy/>
@@ -93,13 +413,52 @@
         <sys_scope display_value="Supply Chain Management">a7767b1ddb4c0700362cfb0e0f9619ec</sys_scope>
         <sys_update_name>sp_widget_30c690a5dbcc0700362cfb0e0f96196b</sys_update_name>
         <sys_updated_by>ros11756_admin</sys_updated_by>
-        <sys_updated_on>2017-07-18 21:22:32</sys_updated_on>
+        <sys_updated_on>2017-07-21 15:33:24</sys_updated_on>
         <template><![CDATA[<div>
 <!-- your widget template -->
-  <ng-map zoom="5" center="[37.68717609999999, -97.33005299999999]" class="gMap">
-      <marker ng-repeat="s in data.suppliers"
-        position="{{s.pos}}" title="pos: {{s.name}}" icon="{{s.icon}}"></marker>
-    </ng-map>
+  <ng-map zoom="{{mapzoom}}" center="[{{mapLat}}, {{mapLong}}]" class="gMap" disable-default-u-i="true" zoom-control="true" zoom-control-options="{style:'LARGE', position:'LEFT_CENTER'}"/>
+</div>
+<div id="legend" ng-show="legendDisplay">
+  <div>
+    <div class="legendgroupL">
+      <h3>Map Focus</h3>
+  
+      <div>
+        <toggle ng-model="maplocal" ng-change="switchView()" onstyle="btn-info" offstyle="btn-warning" on="<i class='fa fa-map-marker'></i> N America" off="<i class='fa fa-globe'></i> Global"></toggle>
+      </div>
+    </div>
+    <div class="legendgroupR">
+      <h3>Supplier Search</h3>
+  
+      <div class="input-group legend-search has-feedback">
+          <input type="text" class="form-control" ng-model="supplierBox" placeholder="Search for..." ng-keypress="($event.charCode==13)? clientChanged() : return">
+        <span ng-if="supplierBox"
+                  ng-click="clearText()"
+                  class="glyphicon glyphicon-remove form-control-feedback searchX" 
+                  style="cursor: pointer; pointer-events: all;"
+                  uib-tooltip="clear">
+            </span>  
+        <span class="input-group-btn">
+            <button class="btn btn-secondary" type="button" ng-click="clientChanged()">Go!</button>
+          </span>
+        </div>
+    </div>
+  </div>
+<div style="clear: both;">
+
+  <h3 class="clientToggle">Supplier Toggles</h3>
+
+  <div class="form-group" style="margin-bottom: 5px;">
+    <select class="form-control" ng-model="clientType" ng-change="typeChanged()">
+      <option>All Suppliers</option>
+      <option>Existing Suppliers</option>
+      <option>Target Suppliers</option>
+    </select>
+  </div>
+</div>
+  
+  <div ng-repeat="client in data.clients"><toggle ng-model="client.enabled" ng-change="boxToggle()" /><img src="{{client.icon}}" />{{client.name}}</div>
+  
 </div>]]></template>
     </sp_widget>
 </record_update>
