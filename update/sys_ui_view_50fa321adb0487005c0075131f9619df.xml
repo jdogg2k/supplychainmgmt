@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_ui_view">
+    <sys_ui_view action="INSERT_OR_UPDATE">
+        <group/>
+        <hidden>false</hidden>
+        <name>store_usage_overview</name>
+        <roles/>
+        <sys_class_name>sys_ui_view</sys_class_name>
+        <sys_created_by>ros11756_admin</sys_created_by>
+        <sys_created_on>2017-07-21 15:36:56</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>50fa321adb0487005c0075131f9619df</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Store_usage_overview</sys_name>
+        <sys_package display_value="Supply Chain Management" source="x_kfna2_supply_cha">a7767b1ddb4c0700362cfb0e0f9619ec</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Supply Chain Management">a7767b1ddb4c0700362cfb0e0f9619ec</sys_scope>
+        <sys_update_name>sys_ui_view_50fa321adb0487005c0075131f9619df</sys_update_name>
+        <sys_updated_by>ros11756_admin</sys_updated_by>
+        <sys_updated_on>2017-07-21 15:36:56</sys_updated_on>
+        <title>Store_usage_overview</title>
+        <user/>
+    </sys_ui_view>
+</record_update>
