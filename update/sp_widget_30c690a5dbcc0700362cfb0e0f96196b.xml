@@ -147,9 +147,12 @@ function smoothZoom (map, max, cnt) {
 					var infoContent = '<div id="iw-container">' +
                     '<div class="iw-title" style="background-color: ' + s.markerColor +'">' + s.name + '<img class="' + logoClass + '" src="/' + s.logo + '" /></div>' +
                     '<div class="iw-content">' +
-                      '<div class="iw-subTitle">' + s.client + ' | ' + s.city + ', ' + stateVal + '</div>' +
-                      '<div class="iw-location">' + s.comment + '</div>' +
-                    '</div>' +
+                      '<div class="iw-subTitle">' + s.client + ' | ' + s.city + ', ' + stateVal + '</div>';
+			 if (s.comment != null){
+				 infoContent += '<div class="iw-location">' + s.comment + '</div>';
+			 }
+                    
+                    infoContent += '</div>' +
                     '<div class="iw-bottom-gradient"></div>' +
                   '</div>';
 					$scope.bindInfoWindow(marker, map, infowindow, infoContent);
@@ -405,7 +408,7 @@ function smoothZoom (map, max, cnt) {
         <sys_created_on>2017-07-18 19:44:10</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>30c690a5dbcc0700362cfb0e0f96196b</sys_id>
-        <sys_mod_count>267</sys_mod_count>
+        <sys_mod_count>268</sys_mod_count>
         <sys_name>Supply Chain Map</sys_name>
         <sys_package display_value="Supply Chain Management" source="x_kfna2_supply_cha">a7767b1ddb4c0700362cfb0e0f9619ec</sys_package>
         <sys_policy/>
@@ -413,7 +416,7 @@ function smoothZoom (map, max, cnt) {
         <sys_scope display_value="Supply Chain Management">a7767b1ddb4c0700362cfb0e0f9619ec</sys_scope>
         <sys_update_name>sp_widget_30c690a5dbcc0700362cfb0e0f96196b</sys_update_name>
         <sys_updated_by>ros11756_admin</sys_updated_by>
-        <sys_updated_on>2017-07-21 15:33:24</sys_updated_on>
+        <sys_updated_on>2017-08-01 22:55:51</sys_updated_on>
         <template><![CDATA[<div>
 <!-- your widget template -->
   <ng-map zoom="{{mapzoom}}" center="[{{mapLat}}, {{mapLong}}]" class="gMap" disable-default-u-i="true" zoom-control="true" zoom-control-options="{style:'LARGE', position:'LEFT_CENTER'}"/>
