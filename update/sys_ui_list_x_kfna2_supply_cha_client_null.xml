@@ -4,32 +4,32 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>name</element>
-            <list_id display_value="x_kfna2_supply_cha_client" element="NULL" name="x_kfna2_supply_cha_client" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">3286d579dbc84700362cfb0e0f9619b4</list_id>
+            <list_id display_value="x_kfna2_supply_cha_client" element="NULL" name="x_kfna2_supply_cha_client" parent="NULL" relationship="NULL" sys_domain="13123399db4c0700362cfb0e0f96198b" view="Default view">a639f3dddb4c0700362cfb0e0f96194c</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
             <sum>false</sum>
             <sys_created_by>ros11756_admin</sys_created_by>
-            <sys_created_on>2017-07-19 19:01:19</sys_created_on>
-            <sys_id>fe86d579dbc84700362cfb0e0f9619b4</sys_id>
+            <sys_created_on>2017-07-18 17:35:08</sys_created_on>
+            <sys_id>6e39f3dddb4c0700362cfb0e0f96194d</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>ros11756_admin</sys_updated_by>
-            <sys_updated_on>2017-07-19 19:01:19</sys_updated_on>
+            <sys_updated_on>2017-07-18 17:35:08</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>type</element>
-            <list_id display_value="x_kfna2_supply_cha_client" element="NULL" name="x_kfna2_supply_cha_client" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">3286d579dbc84700362cfb0e0f9619b4</list_id>
+            <list_id display_value="x_kfna2_supply_cha_client" element="NULL" name="x_kfna2_supply_cha_client" parent="NULL" relationship="NULL" sys_domain="13123399db4c0700362cfb0e0f96198b" view="Default view">a639f3dddb4c0700362cfb0e0f96194c</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>1</position>
             <sum>false</sum>
             <sys_created_by>ros11756_admin</sys_created_by>
-            <sys_created_on>2017-07-19 19:01:19</sys_created_on>
-            <sys_id>7a86d579dbc84700362cfb0e0f9619b5</sys_id>
+            <sys_created_on>2017-07-18 17:35:08</sys_created_on>
+            <sys_id>6a39f3dddb4c0700362cfb0e0f96194e</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>ros11756_admin</sys_updated_by>
-            <sys_updated_on>2017-07-19 19:01:19</sys_updated_on>
+            <sys_updated_on>2017-07-18 17:35:08</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list action="INSERT_OR_UPDATE">
             <average_value>false</average_value>

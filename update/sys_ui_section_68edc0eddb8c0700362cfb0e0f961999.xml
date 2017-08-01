@@ -155,6 +155,34 @@
             <sys_user/>
             <type>.end_split</type>
         </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>id</element>
+            <position>11</position>
+            <sys_created_by>ros11756_admin</sys_created_by>
+            <sys_created_on>2017-08-01 21:29:40</sys_created_on>
+            <sys_id>6e25b40adbd44f005c0075131f9619be</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_kfna2_supply_cha_suppliers" sys_domain="global" view="Default view">68edc0eddb8c0700362cfb0e0f961999</sys_ui_section>
+            <sys_updated_by>ros11756_admin</sys_updated_by>
+            <sys_updated_on>2017-08-01 21:29:40</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>number</element>
+            <position>12</position>
+            <sys_created_by>ros11756_admin</sys_created_by>
+            <sys_created_on>2017-08-01 21:33:38</sys_created_on>
+            <sys_id>3816704adbd44f005c0075131f96196a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_kfna2_supply_cha_suppliers" sys_domain="global" view="Default view">68edc0eddb8c0700362cfb0e0f961999</sys_ui_section>
+            <sys_updated_by>ros11756_admin</sys_updated_by>
+            <sys_updated_on>2017-08-01 21:33:38</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
         <sys_ui_section action="INSERT_OR_UPDATE">
             <caption/>
             <header>false</header>

@@ -8,10 +8,19 @@
         <name>Supplier Geocode</name>
         <run_once>false</run_once>
         <script><![CDATA[var gr = new GlideRecord("x_kfna2_supply_cha_suppliers");
-gr.addEncodedQuery("country=USA^state!=NULL^city!=NULL^state!=Canada^state!=MEX");
+gr.addEncodedQuery("lat_coord=NULL");
 gr.query();
 while (gr.next()) {
-var tAddress = gr.getValue("city") + ', ' + gr.getValue("state");
+
+	var tAddress = "";
+if (gr.getValue("country") == "USA"){
+	tAddress = gr.getValue("city") + ', ' + gr.getValue("state");
+} else {
+        tAddress = gr.getValue("city") + ', ' + gr.getValue("country");
+        if (gr.getValue("state") != "" && gr.getValue("state") != null){
+                tAddress += ',' + gr.getValue("state");
+        }
+}
 	
    var point=GoogleMapsHelper.google_getLatLong(tAddress + '');
    if (point[0] && point[1]) {
@@ -25,7 +34,7 @@ var tAddress = gr.getValue("city") + ', ' + gr.getValue("state");
         <sys_created_on>2017-07-18 18:27:26</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>671304e5db8c0700362cfb0e0f961981</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>Supplier Geocode</sys_name>
         <sys_package display_value="Supply Chain Management" source="x_kfna2_supply_cha">a7767b1ddb4c0700362cfb0e0f9619ec</sys_package>
         <sys_policy/>
@@ -33,7 +42,7 @@ var tAddress = gr.getValue("city") + ', ' + gr.getValue("state");
         <sys_scope display_value="Supply Chain Management">a7767b1ddb4c0700362cfb0e0f9619ec</sys_scope>
         <sys_update_name>sys_script_fix_671304e5db8c0700362cfb0e0f961981</sys_update_name>
         <sys_updated_by>ros11756_admin</sys_updated_by>
-        <sys_updated_on>2017-07-18 19:00:40</sys_updated_on>
+        <sys_updated_on>2017-08-01 22:18:18</sys_updated_on>
         <unloadable>false</unloadable>
     </sys_script_fix>
 </record_update>
