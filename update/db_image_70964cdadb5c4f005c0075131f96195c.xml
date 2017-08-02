@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="db_image">
+    <db_image action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <category>Service Portal</category>
+        <format/>
+        <height/>
+        <image/>
+        <name>Wedges.svg</name>
+        <size_bytes>2181</size_bytes>
+        <sys_class_name>db_image</sys_class_name>
+        <sys_created_by>ros11756_admin</sys_created_by>
+        <sys_created_on>2017-08-02 12:44:50</sys_created_on>
+        <sys_customer_update>true</sys_customer_update>
+        <sys_id>70964cdadb5c4f005c0075131f96195c</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Wedges.svg</sys_name>
+        <sys_package display_value="Supply Chain Management" source="x_kfna2_supply_cha">a7767b1ddb4c0700362cfb0e0f9619ec</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Supply Chain Management">a7767b1ddb4c0700362cfb0e0f9619ec</sys_scope>
+        <sys_update_name>db_image_70964cdadb5c4f005c0075131f96195c</sys_update_name>
+        <sys_updated_by>ros11756_admin</sys_updated_by>
+        <sys_updated_on>2017-08-02 12:45:14</sys_updated_on>
+        <thumbnail/>
+        <width/>
+    </db_image>
+    <sys_attachment action="INSERT_OR_UPDATE">
+        <average_image_color/>
+        <compressed>true</compressed>
+        <content_type>image/svg+xml</content_type>
+        <encryption_context/>
+        <file_name>image</file_name>
+        <image_height/>
+        <image_width/>
+        <size_bytes>2181</size_bytes>
+        <size_compressed>528</size_compressed>
+        <sys_created_by>ros11756_admin</sys_created_by>
+        <sys_created_on>2017-08-02 12:45:08</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>34b64cdadb5c4f005c0075131f961916</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>ros11756_admin</sys_updated_by>
+        <sys_updated_on>2017-08-02 12:45:08</sys_updated_on>
+        <table_name>ZZ_YYdb_image</table_name>
+        <table_sys_id>70964cdadb5c4f005c0075131f96195c</table_sys_id>
+    </sys_attachment>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>H4sIAAAAAAAAAA==</data>
+        <length>16</length>
+        <position>0</position>
+        <sys_attachment display_value="image" sys_id="34b64cdadb5c4f005c0075131f961916">34b64cdadb5c4f005c0075131f961916</sys_attachment>
+        <sys_created_by>ros11756_admin</sys_created_by>
+        <sys_created_on>2017-08-02 12:45:08</sys_created_on>
+        <sys_id>74b64cdadb5c4f005c0075131f961916</sys_id>
+    </sys_attachment_doc>
+    <sys_attachment_doc action="INSERT_OR_UPDATE">
+        <data>zZZNj9sgEIbv/RWIXnalGuPP2Js40rbXpodqL+2NGOygJdgCEida5b8X0ySbD7Ub5WQkrBl4mRnPw4GJXteg49QsChhi3G4gAAvG64V59zdLIXUBF8a0T77fdR3qItSo2rcC7NsAEKw56742mwJigEGA3YSgVUwztWbPumWl+UkMbwq4mXH6y04ISkG0jSuo9jpGa6Yh0GYrWAHnpHytVbOS9AnIRrIxnH4CdkxqYBSRumrUsoDOFMSwhwR/SfDjXuRksvaIMco7keuSCPbw9lY2suI1cu5u9wjBlQaj0Xuwf2f1bFrvNO+1WDWmV4bpCKV5CBIMLvX2BJF8aVUvh2Ogr5zPV4b9IEu2z9hv2FK3LTtEtQ0kopw11K4ILhlRlgMRK6Z7DC7VOEr3FgSvbPvCl25zHEBAV8paKE1s1+es5tJ61lSsZcR8s623F4BLyiouuc01nfiXZV78RUvM4tj2igvhNS0pudkW8Njz/cpuB8+UJ4oy6DdpAWeu7O/2i5+dCdzVcpcrwb8hOE+BUfZ3qYCfK1LS3JXc13QGx68/ZmXpD5NVlp6N0cDIhbeSu+55jg/t/g/WKMtHeXYv1iCKUBang8MaoGhgHKP7OQbZLSDjJI/ju0GGcYryMBocyBClAwMZ3w8yHN0CsgpyGs0/BHniHM29MemfD9M/Sm4RxoUIAAA=</data>
+        <length>692</length>
+        <position>1</position>
+        <sys_attachment display_value="image" sys_id="34b64cdadb5c4f005c0075131f961916">34b64cdadb5c4f005c0075131f961916</sys_attachment>
+        <sys_created_by>ros11756_admin</sys_created_by>
+        <sys_created_on>2017-08-02 12:45:08</sys_created_on>
+        <sys_id>f4b64cdadb5c4f005c0075131f961916</sys_id>
+    </sys_attachment_doc>
+</record_update>

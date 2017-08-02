@@ -5,6 +5,7 @@
   /* widget controller */
   var c = this;
 	var mapMarkers = [];
+	$scope.loading = true;
 	$scope.legendDisplay = false;
 	$scope.supplierBox = "";
 	$scope.maplocal = true;
@@ -157,6 +158,7 @@ function smoothZoom (map, max, cnt) {
                   '</div>';
 					$scope.bindInfoWindow(marker, map, infowindow, infoContent);
         }
+		$scope.loading = false;
 	}
 	
 	function reloadMarkers() {
@@ -175,6 +177,7 @@ function smoothZoom (map, max, cnt) {
 	}
 	
 	$scope.clientChanged = function(){
+		$scope.loading = true;
 		var mapFilter = "";
 		$scope.data.clients.forEach(function(leg) {
 					if (!leg.enabled) {
@@ -189,7 +192,6 @@ function smoothZoom (map, max, cnt) {
 		c.server.update().then(function(response) {
 			reloadMarkers();
 		});
-		
 	}
 	
 	$scope.typeChanged = function(){
@@ -231,6 +233,37 @@ function smoothZoom (map, max, cnt) {
 
 .gm-style-iw + div {display: none;}
 .gm-style-iw {text-align:center;}
+
+.map-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 555;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.map-overlay .msg span {
+  display: table-cell;
+  vertical-align: middle;
+  width: 230px;
+}
+
+.map-overlay .msg {
+  position: absolute;
+  font-family: "Roboto Condensed", sans-serif;
+  top: 40%;
+  left: 40%;
+  width: 400px;
+  height: 40px;
+  background: rgba(46, 97, 141, 0.7);
+  border-radius: 7px;
+  border: 5px solid #c1c1c1;
+  text-align: center;
+  font-size: 22px;
+  display: table;
+  color: white;
+}
 
 .gMap {
   width: 100%;
@@ -408,7 +441,7 @@ function smoothZoom (map, max, cnt) {
         <sys_created_on>2017-07-18 19:44:10</sys_created_on>
         <sys_customer_update>true</sys_customer_update>
         <sys_id>30c690a5dbcc0700362cfb0e0f96196b</sys_id>
-        <sys_mod_count>268</sys_mod_count>
+        <sys_mod_count>286</sys_mod_count>
         <sys_name>Supply Chain Map</sys_name>
         <sys_package display_value="Supply Chain Management" source="x_kfna2_supply_cha">a7767b1ddb4c0700362cfb0e0f9619ec</sys_package>
         <sys_policy/>
@@ -416,8 +449,13 @@ function smoothZoom (map, max, cnt) {
         <sys_scope display_value="Supply Chain Management">a7767b1ddb4c0700362cfb0e0f9619ec</sys_scope>
         <sys_update_name>sp_widget_30c690a5dbcc0700362cfb0e0f96196b</sys_update_name>
         <sys_updated_by>ros11756_admin</sys_updated_by>
-        <sys_updated_on>2017-08-01 22:55:51</sys_updated_on>
+        <sys_updated_on>2017-08-02 13:35:21</sys_updated_on>
         <template><![CDATA[<div>
+ <div class="map-overlay" ng-hide="!loading">
+      <div class="msg">
+        <img src="/Wedges.svg" /><span>Plotting Map Data</span>
+      </div>
+    </div> 
 <!-- your widget template -->
   <ng-map zoom="{{mapzoom}}" center="[{{mapLat}}, {{mapLong}}]" class="gMap" disable-default-u-i="true" zoom-control="true" zoom-control-options="{style:'LARGE', position:'LEFT_CENTER'}"/>
 </div>
